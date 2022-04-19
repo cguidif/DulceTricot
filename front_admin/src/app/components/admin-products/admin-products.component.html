@@ -1,0 +1,100 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo"> {{titulo}}</span>
+
+          <form novalidate id="form-1" class="mb-3" [formGroup]="productoForm" (ngSubmit)="submit()">
+            
+            <div class="mb-3">
+              <input type="text" formControlName="name" class="form-control form-control-lg" placeholder="Nombre">
+              <div class="text-danger" *ngIf = "productoForm.get('name')?.hasError('required') && productoForm.get('name')?.touched">
+                  <span>El nombre del producto <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="category" class="form-control form-control-lg" placeholder="Categoria">
+              <div class="text-danger" *ngIf = "productoForm.get('category')?.hasError('required') && productoForm.get('category')?.touched">
+                  <span>El nombre de la categoria <strong>es obligatoria</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="description" class="form-control form-control-lg" placeholder="Descripción">
+              <div class="text-danger" *ngIf = "productoForm.get('description')?.hasError('required') && productoForm.get('description')?.touched">
+                  <span>La descripcion del producto <strong>es obligatoria</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" formControlName="price" class="form-control form-control-lg" placeholder="Precio">
+              <div class="text-danger" *ngIf = "productoForm.get('price')?.hasError('required') && productoForm.get('price')?.touched">
+                  <span>El precio del producto <strong>es obligatorio</strong></span>
+              </div>
+            </div>
+
+            <div class="mb-3">
+
+              <input type="file" accept="image/*" (change)="showPreview($event)" />
+              <input accept="file_type | audio/* | video/* | image/* | media_type">
+              <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+                <img [src]="imageURL" [alt]="productoForm.value.name">
+              </div>
+
+              <input type="file" accept="image/*" formControlName="image" class="form-control form-control-lg" placeholder="Imagen">         
+            </div>
+
+            <div class="mb-3">
+              <button routerLink="/products" class="btn btn-secondary btn-lg" style="margin: 20px">CANCELAR</button>
+              <button type="submit" class="btn btn-success btn-lg" [disabled] ="productoForm.invalid">GUARDAR</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-danger" [hidden]="!hasError">
+          {{ errorMessage }}
+        </div>
+        <div class="alert alert-success" [hidden]="!success">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <div class="col">
+        <table class="table table-bordered">
+          <thead class="bg-dark text-light">
+          <tr>
+            <th>Id</th>
+            <th width="20%">Nombre</th>
+            <th width="40%">Descripción</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Acciones</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr>
+            <td>{{ product.description }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price | currency:'$' }}</td>
+            <td>{{ product.category }}</td>
+            <td>
+              <i [routerLink]= "['/admin-product',6]" class="fas fa-edit text-primary"></i>
+              <i class="fas fa-trash text-danger" (click)="deleteProduct(product.id)"></i>           
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+-->

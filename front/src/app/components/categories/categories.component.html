@@ -1,0 +1,48 @@
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+
+                <!-- section title -->
+                <div class="col-md-12">
+                  <div class="section-title">
+                    <h3 class="title">Seleccionar Categoría</h3>
+                  </div>
+                </div>
+                <!-- /section title -->
+                
+
+        <!-- shops -->
+            <div class="col-md-3 col-sm-5" *ngFor="let c of categories">
+              <div class="shop">
+                <div class="shop-img">
+                  <img [src]="c.image" alt="{{c.title}}" width="200px" class="img-fluid" (click)="selectCategory(c.id)" style="cursor:pointer;">
+                </div>
+                <div class="shop-body">
+                  <h3>{{c.title}}</h3>
+                  <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div>
+          </div>
+        <!-- /shops -->
+
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /SECTION -->
+  
+  <!-- SECTION -->
+  <div class="section">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+      </div>
+    </div>
+  </div>
+  <!-- /container -->
+  

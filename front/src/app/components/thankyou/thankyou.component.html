@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron text-center">
+        <h1 class="display-3">Gracias por tu Compra!</h1>
+        <p class="lead"><strong>Por favor, revisa tu email</strong> para confirmar la orden.</p>
+        <hr>
+        <p>
+
+        <p>Nro de Order : <strong>{{orderId}}</strong></p>
+      </div>
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Titulo</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of products">
+          <td>
+            <img [src]="p.image" alt="{{p.title}}" class="img-thumbnail" width="100px">
+          </td>
+          <td>{{p.title}}</td>
+          <td>{{p.price | currency:'USD'}}</td>
+          <td>{{p.quantityOrdered}}</td>
+        </tr>
+
+        <tr class="border-0">
+          <td style="border: none;"></td>
+          <td></td>
+          <td>TOTAL</td>
+          <td>{{cartTotal | currency:'USD'}}</td>
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
